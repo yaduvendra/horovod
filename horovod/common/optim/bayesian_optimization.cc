@@ -60,12 +60,12 @@ void BayesianOptimization::AddSample(const Eigen::VectorXd& x, const Eigen::Vect
 
 VectorXd BayesianOptimization::NextSample() {
   MatrixXd x_sample(x_samples_.size(), d_);
-  for (int i = 0; i < x_samples_.size(); i++) {
+  for (unsigned int i = 0; i < x_samples_.size(); i++) {
     x_sample.row(i) = x_samples_[i];
   }
 
   MatrixXd y_sample(y_samples_.size(), 1);
-  for (int i = 0; i < y_samples_.size(); i++) {
+  for (unsigned int i = 0; i < y_samples_.size(); i++) {
     y_sample.row(i) = y_samples_[i];
   }
 
@@ -101,7 +101,7 @@ VectorXd BayesianOptimization::ProposeLocation(const MatrixXd& x_sample, const M
   double fx_min = std::numeric_limits<double>::max();
   for (int i = 0; i < n_restarts; i++) {
     VectorXd x = VectorXd::Zero(d_);
-    for (int j = 0; j < d_; j++) {
+    for (unsigned int j = 0; j < d_; j++) {
       x[j] = dists_[j](gen_);
     }
 

@@ -147,7 +147,7 @@ private:
     void ResetState();
 
     std::vector<T> values_;
-    int32_t index_;
+    uint32_t index_;
   };
 
   enum BayesianVariable { fusion_buffer_threshold_mb, cycle_time_ms };
@@ -176,7 +176,7 @@ private:
 
     std::vector<BayesianVariableConfig> variables_;
     std::vector<Eigen::VectorXd> test_points_;
-    int32_t iteration_;
+    uint32_t iteration_;
 
     struct EnumClassHash {
       template <typename T>
